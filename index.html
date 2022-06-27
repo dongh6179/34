@@ -11,12 +11,13 @@
             margin-left:auto;
             margin-right:auto;
             text-align: center;
+            background-color: rgb(255, 213, 213);
         }
 
         .button {
-            background-color: rgb(175, 239, 255);
+            background-color: rgb(255, 0, 0);
             color: black;
-            border: 2px solid #008CBA;
+            border: 2px solid rgb(255, 0, 0);
             padding: 16px 32px;
             text-decoration: none;
             font-size: 16px;
@@ -25,8 +26,8 @@
         }
 
         .button:hover {
-            background-color: #008CBA;
-            color: white;
+            background-color: #ff4545;
+            color: rgb(0, 0, 0);
         }
 
         #tutorial {
@@ -34,7 +35,7 @@
             width: 100%;
             padding: 25px 0;
             text-align: center;
-            background-color: rgb(26, 163, 208);
+            background-color: rgb(254, 113, 113);
             margin-top: 5px;
         }
     </style>
@@ -79,11 +80,11 @@
                 alert("WRONG");
             }
             count++;
-            if(count <= 10){
+            if(count < 10){
                 document.getElementById("question").innerHTML = array[count].q;
             }
             else{
-                alert("end of game");
+                alert("end of game, and yes a hot dog is a taco. I don't care what you say.");
             }
         }
         else{
