@@ -12,26 +12,56 @@
             margin-right:auto;
             text-align: center;
         }
+
+        .button {
+            background-color: rgb(175, 239, 255);
+            color: black;
+            border: 2px solid #008CBA;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+        }
+
+        .button:hover {
+            background-color: #008CBA;
+            color: white;
+        }
+
+        #tutorial {
+            line-height: 2;
+            width: 100%;
+            padding: 25px 0;
+            text-align: center;
+            background-color: rgb(26, 163, 208);
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
     <h1>Answer the question below</h1>
     <h3 id = "score">Score: 0</h3>
+    <button id="tutorialButton" class="button" onclick="displayTutorial()">Hide Tutorial</button>
+    <div id="tutorial">
+        In order to answer the question,
+        <br>Press either t for true or f for false
+    </div>
     <h4 id = "question">e</h4>
     <script>
     var count = 0, score = 0; 
 
     var array = [
-        { q: "QUESTION", a: "t" },
-        { q: "QUESTION", a: "f" },
-        { q: "QUESTION", a: "ANSWER" },
-        { q: "QUESTION", a: "ANSWER" },
-        { q: "QUESTION", a: "ANSWER" },
-        { q: "QUESTION", a: "ANSWER" },
-        { q: "QUESTION", a: "ANSWER" },
-        { q: "QUESTION", a: "ANSWER" },
-        { q: "QUESTION", a: "ANSWER" },
-        { q: "QUESTION", a: "ANSWER" }
+        { q: "Is the Earth flat", a: "f" },
+        { q: "Is a hotdog a taco", a: "t" },
+        { q: "This game is great", a: "t" },
+        { q: "Javascript is a programming language", a: "t" },
+        { q: "NFT stands for non-fungible token", a: "t" },
+        { q: "The year is 2021", a: "f" },
+        { q: "France is in Asia", a: "f" },
+        { q: "Water is H2O", a: "t" },
+        { q: "Life is hard", a: "t" },
+        { q: "The answer to life, the universe, and everything is 42", a: "t" }
     ];
 
     document.getElementById("question").innerHTML = array[count].q;
@@ -49,13 +79,30 @@
                 alert("WRONG");
             }
             count++;
-            document.getElementById("question").innerHTML = array[count].q;
+            if(count <= 10){
+                document.getElementById("question").innerHTML = array[count].q;
+            }
+            else{
+                alert("end of game");
+            }
         }
         else{
             alert("Please type either t or f");
         }
     }
 
+
+    function displayTutorial() {
+            var x = document.getElementById("tutorial");
+            var y = document.getElementById("tutorialButton");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.textContent = "Hide Tutorial";
+            } else {
+                x.style.display = "none";
+                y.textContent = "Show Tutorial";
+            }
+    }
     </script>
 </body>
 </html>
