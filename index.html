@@ -5,32 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>34</title>
+    <style>
+        body{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <h1>Answer the question below</h1>
+    <h3 id = "score">Score: 0</h3>
     <h4 id = "question">e</h4>
     <script>
-    var count = 0;
-
-    document.getElementById("question").textContent = array[count];
+    var count = 0, score = 0; 
 
     var array = [
-        { q: "QUESTION", a: "ANSWER" }
-        { q: "QUESTION", a: "ANSWER" }
-        { q: "QUESTION", a: "ANSWER" }
-        { q: "QUESTION", a: "ANSWER" }
-        { q: "QUESTION", a: "ANSWER" }
-        { q: "QUESTION", a: "ANSWER" }
-        { q: "QUESTION", a: "ANSWER" }
-        { q: "QUESTION", a: "ANSWER" }
-        { q: "QUESTION", a: "ANSWER" }
+        { q: "QUESTION", a: "t" },
+        { q: "QUESTION", a: "f" },
+        { q: "QUESTION", a: "ANSWER" },
+        { q: "QUESTION", a: "ANSWER" },
+        { q: "QUESTION", a: "ANSWER" },
+        { q: "QUESTION", a: "ANSWER" },
+        { q: "QUESTION", a: "ANSWER" },
+        { q: "QUESTION", a: "ANSWER" },
+        { q: "QUESTION", a: "ANSWER" },
         { q: "QUESTION", a: "ANSWER" }
     ];
-    
-    
+
+    document.getElementById("question").innerHTML = array[count].q;
+
     
     document.onkeyup   = function (event) {
         var input = event.key;
+        if(input == "t" || input == "f"){
+            if (array[count].a == input) {
+                alert("You got it right!");
+                score++;
+                document.getElementById("score").innerHTML = "Score: " + score;
+            }
+            else{
+                alert("WRONG");
+            }
+            count++;
+            document.getElementById("question").innerHTML = array[count].q;
+        }
+        else{
+            alert("Please type either t or f");
+        }
     }
 
     </script>
